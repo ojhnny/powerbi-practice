@@ -183,30 +183,6 @@ Average Pizzas Per Order = DIVIDE([Total Pizzas Sold], [Total Orders])
 
 ---
 
-
-
-## SQL Fix Applied
-
-After renaming `order_date` → `cleaned_date` and dropping the original column, the February category query still referenced `order_date`, which fails.
-
-**Before (broken):**
-
-```sql
-where month(order_date) = 2
-```
-
-**After (fixed):**
-
-```sql
-where month(cleaned_date) = 2
-```
-
-Also added the missing **B3 — % of sales by pizza category** query and a full-year **B5** (category quantity without a month filter) so SQL matches the Home page visuals.
-
----
-
-
-
 ## Key Findings (2015, unfiltered)
 
 
